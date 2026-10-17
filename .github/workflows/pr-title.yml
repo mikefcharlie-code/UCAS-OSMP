@@ -1,0 +1,35 @@
+name: Lint PR Title
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+jobs:
+  validate-title:
+    name: Validate Conventional Commit Title
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Validate PR Title
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # Standard types matching CONTRIBUTING.md plus common maintenance types
+          types: |
+            feat
+            fix
+            docs
+            rfc
+            refactor
+            test
+            ci
+            chore
+          requireScope: false
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: "The commit subject should start with a lowercase letter or symbol."
