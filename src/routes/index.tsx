@@ -47,7 +47,7 @@ function Index() {
           </div>
         </div>
         <div className="panel overflow-hidden bg-paper p-2">
-          <img src="/figures/fig-1.png" alt="FIG. 1 — Uncrewed aircraft platform" className="w-full" />
+          <img src="/figures/fig-1.jpg" alt="FIG. 1 — Uncrewed aircraft platform" className="w-full" />
         </div>
       </section>
 
